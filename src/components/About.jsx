@@ -23,12 +23,6 @@ const About = () => {
         </p>
 
         <br />
-
-        <p className="text-xl">
-          Now its time to learn new technologies in web development, So I would like to contribute in React js 
-          for web aaplication development. As I have already experienced in React, it is easy to learn React in 
-          short period. I have started working on both web and mobile application developer.
-        </p>
       </div>
     </div>
   );
