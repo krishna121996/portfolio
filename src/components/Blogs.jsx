@@ -32,8 +32,8 @@ useEffect(() => {
           <p className="py-6">Check out some of my Blogs Right here</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {blogs?.length > 0 ? blogs?.map(({ id, src, social_image }) => (
+        <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-8 px-12 sm:px-0">
+          {blogs?.length > 0 ? blogs?.map(({ id, src, social_image, url, title }) => (
             <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
               <img
                 src={social_image}
@@ -42,9 +42,7 @@ useEffect(() => {
               />
               <div className="flex items-center justify-center">
                 <button className="w-1/2 px-6 py-3 m-2 duration-200 hover:scale-105">
-                <a href="https://dev.to/krishna121996/how-to-communicate-with-the-native-component-from-react-native-using-bridge-2kpj" target="_blank" rel="noopener noreferrer">
-      Read my Blog
-    </a>
+                <a href={url} target="_blank" rel="noopener noreferrer">Read My Article</a>
                 </button>
               </div>
             </div>
