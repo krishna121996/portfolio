@@ -15,7 +15,7 @@ const Home = () => {
             I'm a Mobile App Developer
           </h2>
           <p className="text-gray-500 py-4 max-w-md">
-            I have 5 years of experience building and desgining software.
+            I have 6 years of experience building and desgining software.
             Currently, I love to work on web and mobile application using technologies like
             React Native, React, Node js, Tailwind and GraphQL.
           </p>
