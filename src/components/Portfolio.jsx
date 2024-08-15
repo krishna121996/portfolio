@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import arrayDestruct from "../assets/portfolio/arrayDestruct.jpg";
 import installNode from "../assets/portfolio/installNode.jpg";
 import navbar from "../assets/portfolio/navbar.jpg";
@@ -23,35 +25,52 @@ const Portfolio = () => {
       src: installNode,
     }
   ];
+  const [pages, setPages] = useState([]);
+
+  useEffect(() => {
+    console.log('pages', pages)
+
+}, [pages])
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/krishna121996/repos")
+  .then((res) => res.json())
+  .then((json) => {
+    setPages(json);
+  })
+  .catch((error) => {
+    console.log(error); // Log any potential errors during the fetch operation
+  });
+}, [])
 
   return (
     <div
       name="portfolio"
-      className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen"
+      className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-auto b-20"
     >
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-gray-500">
             Portfolio
           </p>
-          <p className="py-6">Check out some of my work right here</p>
+          <p className="py-6">Check out some of my work right here in github</p>
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {portfolios.map(({ id, src }) => (
+        {pages?.length > 0 ? pages?.map(({ id, name, html_url }) => (
             <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
               <img
-                src={src}
+                src={'https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'}
                 alt=""
                 className="rounded-md duration-200 hover:scale-105"
               />
               <div className="flex items-center justify-center">
                 <button className="w-1/2 px-6 py-3 m-2 duration-200 hover:scale-105">
-                  Visit My GitHub Page
+                <a href={html_url} target="_blank" rel="noopener noreferrer">{name}</a>
                 </button>
               </div>
             </div>
-          ))}
+          )) : <div></div>}
           <br>
           </br>
         </div>

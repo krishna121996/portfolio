@@ -1,5 +1,6 @@
 import About from "./components/About";
 import Blogs from "./components/Blogs";
+import Certification from "./components/certification";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Home from "./components/Home";
@@ -16,6 +17,7 @@ function App() {
       <Portfolio />
       <Experience />
       <Blogs/>
+      <Certification/>
       <Contact />
 
       <SocialLinks />
